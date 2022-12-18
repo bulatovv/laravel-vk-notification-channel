@@ -35,7 +35,7 @@ class VkChannel
         if ($message->contentNotGiven()) {
             throw CouldNotSendNotification::missingContent();
         }
-        $response = (new Client())->request('messages.send', $message->toArray(), $message->getToken());
+        $response = (new Client('5.131'))->request('messages.send', $message->toArray(), $message->getToken());
 
         Event::fire(new MessageWasSended($response, $notifiable));
     }
