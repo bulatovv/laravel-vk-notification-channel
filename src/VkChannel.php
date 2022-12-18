@@ -37,6 +37,6 @@ class VkChannel
         }
         $response = (new Client('5.131'))->request('messages.send', $message->toArray(), $message->getToken());
 
-        Event::fire(new MessageWasSended($response, $notifiable));
+        Event::dispatch(new MessageWasSended($response, $notifiable));
     }
 }
